@@ -16,13 +16,22 @@ Go to the [Latest Release](https://github.com/huggingface/meshgen/releases/lates
 
 # Usage
 
-- Press `N` -> `MeshGen`
+- Press `N` -> `MeshGen` (or `View` -> `Sidebar` -> Select the `MeshGen` tab)
 - Click `Load Generator` (this will take a while)
 - Enter a prompt, for example: `Create a 3D obj file using the following description: a desk`
 - Click `Generate Mesh`
 
 # Troubleshooting
 
+- ModuleNotFoundError when loading generator:
+  - Go to Scripting and give the following command in the Python Interactive Console to get the path to your modules folder
+    ```
+    >>> bpy.utils.user_resource("SCRIPTS", path="modules")
+    ```
+  - Install missing modules by specifying target using pip. For example installing PyTorch in Windows with cuda 12.1:
+    ```
+    pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu121 --target=<path-to-your-modules-folder>
+    ```
 - Find errors in the console:
   - Windows: In Blender, go to `Window` -> `Toggle System Console`
   - Mac/Linux: Launch Blender from the terminal
